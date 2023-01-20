@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { IProducts } from '../../Interfaces/interface'
 import style from './ListCatsProductsItem.module.scss'
+import cat from '../../assets/images/common/cat.png'
 
 interface IListCatsProductsItemProps {
     item: IProducts;
@@ -24,8 +25,11 @@ export const ListCatsProductsItem: FC<IListCatsProductsItemProps> = ({ item }) =
                     <span className={style.ListCatsProductsItem__kilogram}>
                         {item.kilogram}
                     </span>
-                    кг
+                    <span className={style.ListCatsProductsItem__text}>
+                        кг
+                    </span>
                 </div>
+                <img className={style.ListCatsProductsItem__cat} src={cat} alt="cat" />
             </article>
             <p className={style.ListCatsProductsItem__signature}>
                 {item.description}

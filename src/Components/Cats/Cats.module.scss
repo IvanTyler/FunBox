@@ -1,0 +1,12 @@
+@import url('../../assets/styles/fonts.scss');
+
+.sectionCats {
+    &__title {
+        font-family: 'exo2_0';
+        font-size: 36px;
+        line-height: 39px;
+        text-align: center;
+        color: #FFF;
+        text-shadow: 0px 1px 1px #000;
+    }
+}

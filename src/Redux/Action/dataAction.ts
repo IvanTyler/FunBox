@@ -8,7 +8,7 @@ export const getDataFetchProduct = () => (dispath: AppDispatch) => {
         setInterval(() => {
             const response = mockData
             dispath(getDataFetchReducer(response))
-        }, 3000)
+        }, 0)
     } catch (error) {
         dispath(getDataFetchError('ошибка, данных нет'))
     }
