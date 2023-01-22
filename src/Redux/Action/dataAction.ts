@@ -5,7 +5,7 @@ import { AppDispatch } from '../Store/Store';
 export const getDataFetchProduct = () => (dispath: AppDispatch) => {
     try {
         dispath(getDataFetching())
-        setInterval(() => {
+        setTimeout(() => {
             const response = mockData
             dispath(getDataFetchReducer(response))
         }, 0)

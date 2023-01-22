@@ -1,7 +1,14 @@
 export interface IProducts {
     id: number;
+    selected: boolean;
     title: string;
     numberServings: string;
     kilogram: number;
-    description: string;
+    description: IDescription;
+    disabled: boolean;
+}
+
+export interface IDescription {
+    haveProduct: string,
+    notProduct: string,
 }

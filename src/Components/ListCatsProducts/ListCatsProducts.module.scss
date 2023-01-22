@@ -1,4 +1,6 @@
 .ListCatsProducts {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: -40px;
 }

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { IProducts } from '../../Interfaces/interface';
 import { initialState } from '../../Redux/initState'
 
 export const dataSlice = createSlice({
@@ -8,7 +9,7 @@ export const dataSlice = createSlice({
         getDataFetching(state) {
             state.isloading = true;
         },
-        getDataFetchReducer(state, action: PayloadAction<any[]>) {
+        getDataFetchReducer(state, action: PayloadAction<IProducts[]>) {
             state.products = action.payload
             state.isloading = false;
             state.error = ''
@@ -17,6 +18,18 @@ export const dataSlice = createSlice({
             state.isloading = false;
             state.error = action.payload
         },
+        selectedProduct(state, action: PayloadAction<number>) {
+            
+            state.products = state.products.map((el: any) => {
+                if (el.id === action.payload) {
+                    return {
+                        ...el,
+                        selected: !el.selected,
+                    }
+                }
+                return el
+            })
+        }
     }
 })
 
@@ -25,4 +38,5 @@ export const {
     getDataFetchReducer, 
     getDataFetching,
     getDataFetchError,
+    selectedProduct
 } = dataSlice.actions
