@@ -3,6 +3,12 @@
     width: 320px;
     height: 480px;
     margin: 40px;
+    background: linear-gradient(135deg, transparent 25px, #F2F2F2 0) top left,
+        linear-gradient(-135deg, transparent 7px, #F2F2F2 0) top right,
+        linear-gradient(-45deg, transparent 7px, #F2F2F2 0) bottom right,
+        linear-gradient(45deg, transparent 7px, #F2F2F2 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
 
     &__before,
     &__after {
@@ -15,19 +21,19 @@
     &__before {
         left: 0;
         bottom: 0;
-        width: 40px;
+        width: 100%;
         height: calc(100% - 35px);
         border-left: 4px solid #1698D9;
         border-bottom: 4px solid #1698D9;
-        border-radius: 0 12px 0 12px;
+        border-radius: 0 12px 12px 12px;
     }
 
     &__after {
         right: 0;
         top: 0;
         width: calc(100% - 35px);
-        height: calc(100% - 35px);
-        border-radius: 0 12px 0 0;
+        height: calc(100%);
+        border-radius: 0 12px 12px 0px;
         border-top: 4px solid #1698D9;
         border-right: 4px solid #1698D9;
     }
@@ -67,8 +73,11 @@
         border-top: none;
         border-radius: 12px 12px 12px 12px;
         overflow: hidden;
-        background: linear-gradient(135deg, transparent 25px, #F2F2F2 0) top left;
-        background-size: cover;
+        background: linear-gradient(135deg, transparent 25px, #F2F2F2 0) top left,
+            linear-gradient(-135deg, transparent 0, #F2F2F2 0) top right,
+            linear-gradient(-45deg, transparent 0, #F2F2F2 0) bottom right,
+            linear-gradient(45deg, transparent 0, #F2F2F2 0) bottom left;
+        background-size: 50% 50%;
         background-repeat: no-repeat;
     }
 
@@ -85,6 +94,15 @@
     &__packageSelected {
         border-bottom: 4px solid #D91667;
         border-right: 4px solid #D91667;
+        transition: .2s;
+    }
+
+    &__packageSelected:hover>&__titleDefault {
+        display: none;
+    }
+
+    &__packageSelected:hover>&__titleSelected {
+        display: block;
     }
 
     &__title {
@@ -95,7 +113,12 @@
         color: #666;
     }
 
-    &__SubTitle {
+    &__titleSelected {
+        display: none;
+        color: #E62E7A;
+    }
+
+    &__subTitle {
         margin-top: 5px;
         max-width: 211px;
         font-family: 'Trebuchet MS';
@@ -194,7 +217,7 @@
         color: #1698D9;
         cursor: pointer;
     }
-    
+
     &__buyText {
         border-bottom: dashed 1px;
     }

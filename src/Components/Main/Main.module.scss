@@ -1,22 +1,5 @@
 .main {
     flex: 1 1 auto;
     display: flex;
-    margin-top: 81px;
-}
-
-.mainContainer {
-    display: flex;
-    flex-grow: 1;
-    padding-left: 0;
-    padding-right: 0;
-
-    @media (max-width: 970px) {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    @media (max-width: 330px) {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+    align-items: center;
 }

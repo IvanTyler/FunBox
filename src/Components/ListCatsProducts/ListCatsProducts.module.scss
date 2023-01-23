@@ -1,6 +1,10 @@
 .ListCatsProducts {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: -40px;
+    margin: -20px;
+
+    @media (max-width: 1200px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
+    }
 }

@@ -6,6 +6,7 @@ import { ListCatsProductsItem } from '../ListCatsProductsItem/ListCatsProductsIt
 import style from './ListCatsProducts.module.scss'
 
 export const ListCatsProducts: FC = () => {
+
     const { products } = useGetData()
 
     return (

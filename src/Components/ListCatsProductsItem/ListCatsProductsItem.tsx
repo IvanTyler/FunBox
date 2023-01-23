@@ -13,10 +13,6 @@ export const ListCatsProductsItem: FC<IListCatsProductsItemProps> = ({ item }) =
 
     const dispath = useDispatch()
 
-    const selectProduct = () => dispath(selectedProduct(item.id))
-
-    const selectProductStopPropagation = (event: any) => event.stopPropagation()
-
     const disabledLeftCorber = {
         borderLeft: '4px solid #B3B3B3'
     }
@@ -24,6 +20,7 @@ export const ListCatsProductsItem: FC<IListCatsProductsItemProps> = ({ item }) =
     const disabledPackage = {
         borderBottom: '4px solid #B3B3B3',
         borderRight: '4px solid #B3B3B3',
+        opacity: 0.5,
     }
 
     const disabledBefore = {
@@ -61,11 +58,17 @@ export const ListCatsProductsItem: FC<IListCatsProductsItemProps> = ({ item }) =
                 style.ListCatsProductsItem__package
             } style={item.disabled ? disabledPackage : {}}>
                 <div
-                    onClick={() => item.disabled ? selectProductStopPropagation : dispath(selectedProduct(item.id))}
+                    onClick={() => item.disabled ? (event: any) => event.stopPropagation() : dispath(selectedProduct(item.id))}
                     className={style.ListCatsProductsItem__coverPackage}>
                 </div>
-                <h2 className={style.ListCatsProductsItem__title}>Сказочное заморское яство</h2>
-                <h2 className={style.ListCatsProductsItem__SubTitle}>
+                <h2 className={style.ListCatsProductsItem__title + ' ' + style.ListCatsProductsItem__titleDefault}>Сказочное заморское яство</h2>
+                <h2 className={style.ListCatsProductsItem__title + ' ' +
+                    style.ListCatsProductsItem__titleSelected
+                }>
+                    Котэ не одобряет?
+                </h2>
+
+                <h2 className={style.ListCatsProductsItem__subTitle}>
                     <span className={style.ListCatsProductsItem__subTitleNyamushka}>
                         Нямушка
                     </span>
@@ -92,18 +95,18 @@ export const ListCatsProductsItem: FC<IListCatsProductsItemProps> = ({ item }) =
                 <p className={style.ListCatsProductsItem__signature + ' ' + style.ListCatsProductsItem__signatureDisabled}>
                     {item.description.notProduct}
                 </p> :
-                <p className={style.ListCatsProductsItem__signature}>
+                <div className={style.ListCatsProductsItem__signature}>
                     {item.selected ? item.description.haveProduct :
-                        <div className={style.ListCatsProductsItem__signatureContent}>
+                        <p className={style.ListCatsProductsItem__signatureContent}>
                             Чего сидишь? Порадуй котэ, <span className={style.ListCatsProductsItem__buy}>
                                 <span
-                                    onClick={() => item.disabled ? selectProductStopPropagation : dispath(selectedProduct(item.id))}
+                                    onClick={() => item.disabled ? (event: any) => event.stopPropagation() : dispath(selectedProduct(item.id))}
                                     className={style.ListCatsProductsItem__buyText}
                                 >купи</span>.
                             </span>
-                        </div>
+                        </p>
                     }
-                </p>
+                </div>
             }
         </li>
     )

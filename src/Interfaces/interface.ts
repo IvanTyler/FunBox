@@ -3,7 +3,7 @@ export interface IProducts {
     selected: boolean;
     title: string;
     numberServings: string;
-    kilogram: number;
+    kilogram: string;
     description: IDescription;
     disabled: boolean;
 }

@@ -19,7 +19,6 @@ export const dataSlice = createSlice({
             state.error = action.payload
         },
         selectedProduct(state, action: PayloadAction<number>) {
-            
             state.products = state.products.map((el: any) => {
                 if (el.id === action.payload) {
                     return {
